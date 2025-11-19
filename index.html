@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arya Raut — Professional Portfolio</title>
+  <meta name="description" content="Arya Raut — Aspiring Cloud Architect. Portfolio and résumé-style webpage." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.03);
+      --max-width:1100px; --radius:14px; --mono: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; font-family:var(--mono); background:linear-gradient(180deg,#071023 0%, #071428 60%); color:#e6eef6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding:40px 20px;
+    }
+    .wrap{max-width:var(--max-width); margin:0 auto;}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px rgba(255,255,255,0.2);}
+    .brand h1{font-size:32px;margin:0;}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+
+    nav{display:flex;gap:12px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06); padding:8px 12px;border-radius:10px;color:var(--muted);font-size:13px;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#063; border:none}
+
+    main{display:grid;grid-template-columns: 1fr 360px; gap:28px;align-items:start}
+
+    /* Left column */
+    .hero{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .hero .meta{display:flex;gap:16px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(180deg,#e6eef611,transparent);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--bg);font-size:28px}
+    .intro h2{margin:0;font-size:20px}
+    .intro p{margin:6px 0 0;color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .chip{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .section{margin-top:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:16px;border-radius:12px}
+    .section h3{margin:0 0 8px 0;font-size:16px}
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .skill{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;font-size:13px;color:var(--muted)}
+
+    /* Experience list */
+    .exp-item{padding:10px;border-radius:8px;background:rgba(255,255,255,0.015);margin-bottom:10px}
+    .exp-head{display:flex;justify-content:space-between;align-items:center}
+    .exp-head h4{margin:0;font-size:14px}
+    .exp-head span{color:var(--muted);font-size:13px}
+    .exp-body{margin-top:8px;color:var(--muted);font-size:13px}
+    ul.bullets{margin:8px 0 0 18px}
+
+    /* Right column */
+    aside.card{position:sticky;top:40px;background:var(--card);padding:18px;border-radius:var(--radius);height:max-content}
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-list a{color:var(--muted);text-decoration:none;font-size:14px}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .project h5{margin:0 0 6px 0}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px;border-radius:8px;background:rgba(255,255,255,0.012);color:var(--muted)}
+
+    footer{margin-top:28px;color:var(--muted);text-align:center;font-size:13px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      main{grid-template-columns:1fr;}
+      .projects{grid-template-columns:1fr}
+      aside.card{position:static}
+    }
+
+    /* subtle hover */
+    .project, .exp-item, .skill, .chip { transition: all .3s ease; }
+    .project:hover, .exp-item:hover{transform:translateY(-4px);transition:all .3s ease;}
+
+    /* search / filter */
+    .search{display:flex;gap:8px}
+    input.search-in{flex:1;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Segoe UI Mono", monospace}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo" src="WhatsApp Image 2025-11-19 at 8.40.57 PM.jpeg" alt="Profile photo" />
+        <div>
+          <h1>Arya Raut</h1>
+          <p>Aspiring Cloud Architect — Hadapsar, Pune</p>
+        </div>
+      </div>
+      <nav>
+        <button class="btn" data-scroll="about">About</button>
+        <button class="btn" data-scroll="experience">Experience</button>
+        <button class="btn" data-scroll="projects">Projects</button>
+        <a class="btn primary" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="hero">
+          <div class="meta">
+            
+            <div class="intro">
+              <h2>Arya Raut</h2>
+              <p class="muted">Cloud Computing Undergrad | Google | AWS | Azure | DevOps | Infrastructure Automation | CI/CD | Cloud Security | Kubernetes | Terraform | Docker .</p>
+              <div class="chips">
+                <div class="chip">Cloud Architecture</div>
+                <div class="chip">Data Migration</div>
+                <div class="chip">Automation</div>
+                <div class="chip">DevOps Collaboration</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section" id="about">
+            <h3>About</h3>
+            <p class="muted">I am a final-year BSc undergraduate student specializing in Cloud Computing. I am passionate about technology and excited about how cloud computing can change industries. As technology continues to evolve, I am eager to learn more, explore new developments, and contribute to solutions that can positively impact the world.
+
+Beyond my academic and professional pursuits, I actively participate in volunteering initiatives and enjoy dancing immensely..</p>
+          </div>
+
+          <div class="section" id="skills">
+            <h3>Skills</h3>
+            <div class="skills">
+              <div class="skill">Python • Bash • SQL</div>
+              <div class="skill">AWS (EC2, S3, RDS, DataSync, Lambda)</div>
+              <div class="skill">Azure & GCP fundamentals</div>
+              <div class="skill">Kubernetes • Containerization</div>
+              <div class="skill">ETL (Pandas, PySpark), Data Migration Tools</div>
+              <div class="skill">Power BI • Data Visualization</div>
+            </div>
+          </div>
+
+          <div class="section" id="experience">
+            <h3>Experience</h3>
+
+            <div class="exp-item">
+              <div class="exp-head"><h4>Cloud Solution Architect Intern — CyberArt Solutions Pvt. Ltd</h4><span class="muted">Jul 2025 – Present</span></div>
+              <div class="exp-body">
+                <ul class="bullets">
+                  <li>Led migration of ~5 TB on-prem data to AWS using DataSync & S3 Transfer Acceleration.</li>
+                  <li>Automated backup/restore with AWS Lambda; improved operational efficiency.</li>
+                  <li>Collaborated with DevOps & DB teams to implement migration pipelines and HA design.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-head"><h4>Data Engineer Intern — Energy ETA</h4><span class="muted">Jul 2024 – Sep 2024</span></div>
+              <div class="exp-body">
+                <ul class="bullets">
+                  <li>Cleaned & transformed real-time data streams; created dashboards in Power BI.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-head"><h4>Public Relations Associate — VEGAPOD HYPERLOOP</h4><span class="muted">Jul 2024 – Dec 2024</span></div>
+              <div class="exp-body">
+                <ul class="bullets"><li>Led sponsorship and communications for club initiatives.</li></ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section" id="education">
+            <h3>Education</h3>
+            <p class="muted">Dr. Vishwanath Karad MIT - World Peace University — B.Sc. Computer Science (Cloud Computing), CGPA: 8.16</p>
+            <p class="muted mono">S.M. Joshi HSC: 72.33% • Dastur High School SSC: 80.80%</p>
+          </div>
+
+          <div class="section" id="projects">
+            <h3>Selected Projects</h3>
+            <div class="projects">
+              <div class="project">
+                <h5>Large-Scale Data Migration</h5>
+                <p class="muted">Planned and executed a migration strategy for multi-terabyte datasets into AWS S3 with automated validation steps.</p>
+                <div class="tags"><span class="tag">AWS DataSync</span><span class="tag">S3 Transfer Accel</span><span class="tag">Automation</span></div>
+              </div>
+
+              <div class="project">
+                <h5>Automated Backup & Restore</h5>
+                <p class="muted">Serverless solution using AWS Lambda to schedule and orchestrate backups, saving 8 manual hours/week.</p>
+                <div class="tags"><span class="tag">Lambda</span><span class="tag">S3</span><span class="tag">DevOps</span></div>
+              </div>
+
+              <div class="project">
+                <h5>Real-time Data Dashboard</h5>
+                <p class="muted">ETL pipeline + Power BI dashboards to surface operational metrics for stakeholders.</p>
+                <div class="tags"><span class="tag">Power BI</span><span class="tag">Pandas</span><span class="tag">ETL</span></div>
+              </div>
+
+              <div class="project">
+                <h5>Cloud Cost Optimization</h5>
+                <p class="muted">Analyzed usage patterns and recommended architecture changes that reduced projected costs by 15%.</p>
+                <div class="tags"><span class="tag">Cost Analysis</span><span class="tag">AWS</span></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <footer>Want this as a hosted site? I can prepare a GitHub-ready package — or export it as a ZIP.</footer>
+      </section>
+
+      <aside class="card">
+        <h3>Contact</h3>
+        <div class="contact-list">
+          <a href="mailto:rautarya2004@gmail.com">rautarya2004@gmail.com</a>
+          <a href="tel:+919322865589">+91 93228 65589</a>
+          <div class="muted">Hadapsar, Pune</div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <h3 style="margin-top:8px">Quick Links</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="#experience">View Experience</a>
+          <a class="btn" href="mailto:rautarya2004@gmail.com?subject=Portfolio Contact" class="btn primary">Email Me</a>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="section">
+          <h3>Education</h3>
+          <p class="muted">B.Sc. Computer Science (Cloud Computing) — Dr. Vishwanath Karad MIT</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // simple smooth scrolling for nav
+    document.querySelectorAll('[data-scroll]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const id = btn.getAttribute('data-scroll');
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    });
+
+    // keyboard shortcut: press "p" to focus projects
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'p' && !e.metaKey && !e.ctrlKey){
+        const el = document.getElementById('projects');
+        if(el) el.scrollIntoView({behavior:'smooth'});
+      }
+    });
+
+    // lightweight search filter for projects
+    (function(){
+      const projects = Array.from(document.querySelectorAll('.project'));
+      // create a small search input at top of projects
+      const container = document.createElement('div'); container.style.margin='8px 0';
+      const input = document.createElement('input'); input.placeholder='Filter projects (type any keyword)'; input.className='search-in';
+      container.appendChild(input);
+      const projectsSection = document.getElementById('projects');
+      projectsSection.insertBefore(container, projectsSection.firstChild);
+
+      input.addEventListener('input', ()=>{
+        const q = input.value.trim().toLowerCase();
+        projects.forEach(p=>{
+          const text = (p.innerText || '').toLowerCase();
+          p.style.display = q && !text.includes(q) ? 'none' : '';
+        })
+      });
+    })();
+
+    // small a11y improvement: reduce motion for prefers-reduced-motion
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('*').forEach(el=>el.style.transition='none');
+    }
+  </script>
+</body>
+</html>
