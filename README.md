@@ -2,6 +2,7 @@
 
 A modern and responsive personal portfolio website built using HTML, CSS, and JavaScript. It showcases my skills, experience, projects, and contact information with smooth transitions and a clean UI.
 
+
 🚀 Features
 - Responsive and modern UI
 - Smooth transitions and animations
@@ -10,6 +11,7 @@ A modern and responsive personal portfolio website built using HTML, CSS, and Ja
 - Experience and education sections
 - Lightweight, fast, and easy to customize
 
+
 📁 Project Structure
   /
 ├── index.html
@@ -17,10 +19,12 @@ A modern and responsive personal portfolio website built using HTML, CSS, and Ja
 │   └── profile.jpg
 └── README.md
 
+
 🛠️ Technologies Used
 - HTML
 - CSS3
 - JavaScript
+
 
 📦 Deployment
 GitHub Pages
@@ -40,7 +44,8 @@ Netlify / Vercel
 - Add new sections or animations
 - Modify theme colors in CSS variables
 
+
 📬 Contact
-Arya Raut
-📧 rautarya2004@gmail.com
-📍 Pune, India
+ Arya Raut
+ 📧 rautarya2004@gmail.com
+ 📍 Pune, India
